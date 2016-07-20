@@ -17,12 +17,13 @@ use Illuminate\Http\Request;
 //顯示請求處理
 Route::get('/', function () {
     //return view('welcome');
+    return view('task');
 });
 //新增請求處理
 Route::post('/task', function(Request $request){
     //
 });
 //刪除請求處理
-Route::delete('/task/{task}', function(Task $task){
+Route::delete('/task/{id}', function(Task $task){
     //
 });
