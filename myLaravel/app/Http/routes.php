@@ -16,8 +16,10 @@ use Illuminate\Http\Request;
 
 //顯示請求處理
 Route::get('/', function () {
+    $tasks = Task::orderBy('created_at','asc')->get();
     //return view('welcome');
-    return view('task');
+    return view('task', ["tasks"=>$tasks]);
+    //view()的第二個參數傳遞的陣列內容會以索引名稱轉換成對應的變數名稱並將該索引的值存入
 });
 //新增請求處理
 Route::post('/task', function(Request $request){
@@ -29,6 +31,7 @@ Route::post('/task', function(Request $request){
         return redirect("//")
             ->withInput()
             ->withErrors($validateResult);
+        //withErrors方法傳遞的內容會放到@errors變數中
     }
     $task = new Task();
     $task->name = $request->name;
