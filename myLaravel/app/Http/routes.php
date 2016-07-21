@@ -36,10 +36,10 @@ Route::post('/task', function(Request $request){
     $task = new Task();
     $task->name = $request->name;
     $task->save();
-    return 'success';
+    return redirect('/');
 });
 //刪除請求處理
 Route::delete('/task/{id}', function($id){
     Task::findOrFail($id)->delete();
-    return redirect('//');
+    return redirect('/');
 });
