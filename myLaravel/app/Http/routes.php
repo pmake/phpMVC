@@ -23,13 +23,17 @@ Route::get('/', function () {
 Route::post('/task', function(Request $request){
     //新增內建的驗證器做資料驗證
     $validateResult = Validator::make($request->all(), ["name" => "required|max:15"]);
+    //判斷是否含有錯誤
     if($validateResult->fails()){
-        return "資料錯誤!";
+        //重導向回首頁並加入錯誤訊息，重新導回'/'是回到
+        return redirect("//")
+            ->withInput()
+            ->withErrors($validateResult);
     }
     $task = new Task();
     $task->name = $request->name;
     $task->save();
-    return "success";
+    return 'success';
 });
 //刪除請求處理
 Route::delete('/task/{id}', function(Task $task){

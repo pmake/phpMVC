@@ -14,7 +14,7 @@
 
                 <div class="panel-body">
                     <!-- TODO: 顯示驗證錯誤 -->
-
+                    @include("common.errors")
                     <!-- 新任務的表單 -->
                     <form action="{{ url('task') }}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
