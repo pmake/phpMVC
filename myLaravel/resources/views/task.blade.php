@@ -55,7 +55,17 @@
                                 <tr>
                                     {{--用Task的get方法取得的每一筆資料都以物件的方式儲存，欄位名稱則轉換成屬性名稱--}}
                                     <td class="table-text">{{$task->name}}</td>
-                                    <td></td>
+                                    <td>
+                                        <form action="{{url("task/$task->id")}}" method="post">
+                                            {{--表單跨站攻擊防護--}}
+                                            {{csrf_field()}}
+                                            {{method_field("DELETE")}}
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fa fa-btn fa-trash"></i>DELETE
+                                            </button>
+
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

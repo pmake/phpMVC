@@ -28,7 +28,7 @@ Route::post('/task', function(Request $request){
     //判斷是否含有錯誤
     if($validateResult->fails()){
         //重導向回首頁並加入錯誤訊息，重新導回'/'是回到
-        return redirect("//")
+        return redirect("/")
             ->withInput()
             ->withErrors($validateResult);
         //withErrors方法傳遞的內容會放到@errors變數中
@@ -39,6 +39,7 @@ Route::post('/task', function(Request $request){
     return 'success';
 });
 //刪除請求處理
-Route::delete('/task/{id}', function(Task $task){
-    //
+Route::delete('/task/{id}', function($id){
+    Task::findOrFail($id)->delete();
+    return redirect('//');
 });
