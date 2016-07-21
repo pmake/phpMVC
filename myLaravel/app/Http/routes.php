@@ -21,7 +21,10 @@ Route::get('/', function () {
 });
 //新增請求處理
 Route::post('/task', function(Request $request){
-    //
+    $task = new Task();
+    $task->name = $request->name;
+    $task->save();
+    return "success";
 });
 //刪除請求處理
 Route::delete('/task/{id}', function(Task $task){
