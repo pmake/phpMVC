@@ -21,6 +21,11 @@ Route::get('/', function () {
 });
 //新增請求處理
 Route::post('/task', function(Request $request){
+    //新增內建的驗證器做資料驗證
+    $validateResult = Validator::make($request->all(), ["name" => "required|max:15"]);
+    if($validateResult->fails()){
+        return "資料錯誤!";
+    }
     $task = new Task();
     $task->name = $request->name;
     $task->save();
