@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('myView', ['paraFromRoute1' => 'value1', 'paraFromRoute2' => 'value2']);
 });
