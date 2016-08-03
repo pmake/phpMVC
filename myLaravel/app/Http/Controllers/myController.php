@@ -15,7 +15,7 @@ class myController extends Controller
      */
     public function index()
     {
-        //
+        return "this is return from index method of myController controller.";
     }
 
     /**
@@ -47,7 +47,8 @@ class myController extends Controller
      */
     public function show($id)
     {
-        //
+        //從路由網址接收到的參數會置入local變數$id中
+        return "this is return from show method of myController controller, your id is $id.";
     }
 
     /**
@@ -58,7 +59,8 @@ class myController extends Controller
      */
     public function edit($id)
     {
-        //
+        //傳回指定view並將$id做為參數傳遞過去
+        return view("welcome",["idFromClient" => " 哈囉 $id!"]);
     }
 
     /**

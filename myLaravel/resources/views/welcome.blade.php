@@ -38,7 +38,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                {{--解析從controller傳遞過來的參數--}}
+                <div class="title">Laravel 5{{$idFromClient}}</div>
             </div>
         </div>
     </body>
