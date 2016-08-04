@@ -9,7 +9,10 @@ use App\Http\Requests;
 class myController extends Controller
 {
     //在這新增對應路由的方法
-
+    public function shop()
+    {
+        return view("shop");
+    }
 
     /**
      * Display a listing of the resource.

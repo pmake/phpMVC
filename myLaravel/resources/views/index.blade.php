@@ -9,7 +9,7 @@
 
 @section("navbarList")
     <li class="active"><a href="{{url("/")}}">Home</a></li>
-    <li><a href="shop.html">Shop page</a></li>
+    <li><a href="{{url("/shop")}}">Shop page</a></li>
     <li><a href="single-product.html">Single product</a></li>
     <li><a href="cart.html">Cart</a></li>
     <li><a href="checkout.html">Checkout</a></li>
