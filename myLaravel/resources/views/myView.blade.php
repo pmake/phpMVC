@@ -12,3 +12,5 @@
     <h2>測試子視圖的內容: {{$paraFromRoute1 . $paraFromRoute2}}</h2>
     目前的日期:{{date("Y-M-D")}}
 @endsection
+
+@include("parts.partTest")
