@@ -18,7 +18,7 @@ class myController extends Controller
      */
     public function index()
     {
-        return "這是由controller的index方法回傳的訊息";
+        return view("index");
     }
 
     /**
