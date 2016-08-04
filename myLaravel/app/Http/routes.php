@@ -16,6 +16,7 @@ Route::get('/shop',"myController@shop");
 Route::get('/contact-us',"myController@contact_us");
 Route::get('/login',"myController@login");
 Route::get('/logout',"myController@logout");
+Route::get('/single-product',"myController@single_product");
 Route::get('/products',"myController@products");
 Route::get('/products/category',"myController@products_category");
 Route::get('/products/brands',"myController@products_brands");

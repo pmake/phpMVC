@@ -17,7 +17,10 @@ class myController extends Controller
     {
         return view("checkout");
     }
-
+    public function single_product()
+    {
+        return view("single-product");
+    }
     /**
      * Display a listing of the resource.
      *
