@@ -12,15 +12,15 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="{{asset("css/owl.carousel.css")}}">
+    <link rel="stylesheet" href="{{asset("style.css")}}">
+    <link rel="stylesheet" href="{{asset("css/responsive.css")}}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -82,7 +82,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="logo">
-                    <h1><a href="./"><img src="img/logo.png"></a></h1>
+                    <h1><a href="./"><img src="{{asset("img/logo.png")}}"></a></h1>
                 </div>
             </div>
 
@@ -208,14 +208,14 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <!-- jQuery sticky menu -->
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
+<script src="{{asset("js/owl.carousel.min.js")}}"></script>
+<script src="{{asset("js/jquery.sticky.js")}}"></script>
 
 <!-- jQuery easing -->
-<script src="js/jquery.easing.1.3.min.js"></script>
+<script src="{{asset("js/jquery.easing.1.3.min.js")}}"></script>
 
 <!-- Main Script -->
-<script src="js/main.js"></script>
+<script src="{{asset("js/main.js")}}"></script>
 
 @yield("scriptAppendArea")
 
