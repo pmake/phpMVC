@@ -13,6 +13,10 @@ class myController extends Controller
     {
         return view("shop");
     }
+    public function checkout()
+    {
+        return view("checkout");
+    }
 
     /**
      * Display a listing of the resource.
