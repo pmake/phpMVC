@@ -21,6 +21,10 @@ class myController extends Controller
     {
         return view("single-product");
     }
+    public function cart()
+    {
+        return view("cart");
+    }
     /**
      * Display a listing of the resource.
      *
