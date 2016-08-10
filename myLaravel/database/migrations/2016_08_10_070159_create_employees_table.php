@@ -27,7 +27,7 @@ class CreateEmployeesTable extends Migration
             DB::table("employees")->insert([
                 "name" => $fake_data->name,
                 "phone_number" => $fake_data->phoneNumber,
-                "email" => $fake_data->emai
+                "email" => $fake_data->email
             ]);
         }
     }
