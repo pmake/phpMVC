@@ -13,7 +13,8 @@ class ModifyEmployeesColumnProperty extends Migration
     public function up()
     {
         Schema::table('employees', function (Blueprint $table) {
-            //
+            $table->string('name', 60)->change();
+            $table->string('email')->nullable()->change();
         });
     }
 
@@ -25,7 +26,8 @@ class ModifyEmployeesColumnProperty extends Migration
     public function down()
     {
         Schema::table('employees', function (Blueprint $table) {
-            //
+            $table->string('name', 255)->change();
+            $table->string('email')->change();
         });
     }
 }
