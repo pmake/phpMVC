@@ -14,6 +14,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('articleURL')->unique();
+            $table->string('created_at_ip');
+            $table->string('updated_at_ip');
+            $table->string('title', 60);
+            $table->string('discribing');
+            $table->text('content');
             $table->timestamps();
         });
     }
