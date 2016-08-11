@@ -27,7 +27,7 @@ class ModifyEmployeesColumnProperty extends Migration
     {
         Schema::table('employees', function (Blueprint $table) {
             $table->string('name', 255)->change();
-            $table->string('email')->change();
+            $table->string('email')->nullable(false)->change();
         });
     }
 }
