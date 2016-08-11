@@ -13,11 +13,12 @@ class categoriesTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create("zh_TW");
         $name = ["jeans", "clothes", "hat"];
+        $len = count($name);
 
-        for($i=0; $i<10; $i++){
-            $productName = $name[$faker->numberBetween(0,2)];
+        for($i=0; $i<$len; $i++){
+            $productName = $name[$i];
 
-            DB::table("products")->insert([
+            DB::table("categories")->insert([
                 'name' => $productName,
                 'created_at_ip' => $faker->ipv4,
                 'updated_at_ip' => $faker->ipv4,
