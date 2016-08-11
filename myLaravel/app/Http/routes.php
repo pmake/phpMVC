@@ -12,6 +12,7 @@
 */
 
 Route::get('/',"myController@index");
+Route::get('/test/{para}',"myController@test");
 Route::get('/shop',"myController@shop");
 Route::get('/contact-us',"myController@contact_us");
 Route::get('/login',"myController@login");

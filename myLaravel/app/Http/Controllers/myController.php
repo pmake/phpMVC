@@ -9,6 +9,10 @@ use App\Http\Requests;
 class myController extends Controller
 {
     //在這新增對應路由的方法
+    public function test($paraReceiver)
+    {
+        return view("test", ["argu"=>$paraReceiver]);
+    }
     public function shop()
     {
         return view("shop", ["title"=>"Shop Page"]);
