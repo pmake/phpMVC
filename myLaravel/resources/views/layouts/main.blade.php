@@ -109,7 +109,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @yield("navbarList")
+                    <li {{$title == "Home" ? 'class=active' : ""}}><a href="{{url("/")}}">Home</a></li>
+                    <li {{$title == "Shop Page" ? 'class=active' : ""}}><a href="{{url("/shop")}}">Shop Page</a></li>
+                    <li {{$title == "Single Product" ? 'class=active' : ""}}><a href="{{url("/single-product")}}">Single Product</a></li>
+                    <li {{$title == "Cart" ? 'class=active' : ""}}><a href="{{url("/cart")}}">Cart</a></li>
+                    <li {{$title == "Checkout" ? 'class=active' : ""}}><a href="{{url("/checkout")}}">Checkout</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Others</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </div>

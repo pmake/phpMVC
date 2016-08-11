@@ -11,19 +11,19 @@ class myController extends Controller
     //在這新增對應路由的方法
     public function shop()
     {
-        return view("shop");
+        return view("shop", ["title"=>"Shop Page"]);
     }
     public function checkout()
     {
-        return view("checkout");
+        return view("checkout", ["title"=>"Checkout"]);
     }
     public function single_product()
     {
-        return view("single-product");
+        return view("single-product", ["title"=>"Single Product"]);
     }
     public function cart()
     {
-        return view("cart");
+        return view("cart", ["title"=>"Cart"]);
     }
     /**
      * Display a listing of the resource.
@@ -32,7 +32,7 @@ class myController extends Controller
      */
     public function index()
     {
-        return view("index");
+        return view("index", ["title"=>"Home"]);
     }
 
     /**
