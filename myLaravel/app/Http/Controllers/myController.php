@@ -8,6 +8,18 @@ use App\Http\Requests;
 
 class myController extends Controller
 {
+    //定義公用變數
+    var $products;
+    var $categories;
+    var $brands;
+
+    //定義建構子，執行初始化動作為取得資料庫資料儲存於公用變數
+    public function __construct(){
+        $this->products = \App\Product::all(["id", "name", "price"]);
+        $this->categories = \App\Category::all(["name"]);
+        $this->brands = \App\Brand::all(["name"]);
+    }
+
     //在這新增對應路由的方法
 
     //參數傳遞測試
@@ -25,6 +37,12 @@ class myController extends Controller
     {
         return view("checkout", ["title"=>"Checkout"]);
     }
+
+    public function products()
+    {
+        return view("products", ["title"=>"Products", "products"=>$this->products]);
+    }
+
     public function single_product()
     {
         return view("single-product", ["title"=>"Single Product"]);

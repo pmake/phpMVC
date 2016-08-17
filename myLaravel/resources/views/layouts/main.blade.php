@@ -117,6 +117,7 @@
                     <li><a href="#">Category</a></li>
                     <li><a href="#">Others</a></li>
                     <li><a href="#">Contact</a></li>
+                    <li {{$title == "Products" ? 'class=active' : ""}}><a href="{{url("/products")}}">Products</a></li>
                 </ul>
             </div>
         </div>
