@@ -31,25 +31,25 @@ class myController extends Controller
     //正式
     public function shop()
     {
-        return view("shop", ["title"=>"Shop Page"]);
+        return view("shop", ["title"=>"Shop Page", "description"=>"網頁說明"]);
     }
     public function checkout()
     {
-        return view("checkout", ["title"=>"Checkout"]);
+        return view("checkout", ["title"=>"Checkout", "description"=>"網頁說明"]);
     }
 
     public function products()
     {
-        return view("products", ["title"=>"Products", "products"=>$this->products]);
+        return view("products", ["title"=>"Products", "description"=>"網頁說明", "products"=>$this->products]);
     }
 
     public function single_product()
     {
-        return view("single-product", ["title"=>"Single Product"]);
+        return view("single-product", ["title"=>"Single Product", "description"=>"網頁說明"]);
     }
     public function cart()
     {
-        return view("cart", ["title"=>"Cart"]);
+        return view("cart", ["title"=>"Cart", "description"=>"網頁說明"]);
     }
     /**
      * Display a listing of the resource.
@@ -58,7 +58,7 @@ class myController extends Controller
      */
     public function index()
     {
-        return view("index", ["title"=>"Home"]);
+        return view("index", ["title"=>"Home", "description"=>"網頁說明"]);
     }
 
     /**
