@@ -27,6 +27,7 @@ Route::get('/blog',"myController@blog");
 Route::get('/blog/posts/{id}',"myController@blog_posts");
 Route::get('/search/{key-word}',"myController@search");
 Route::get('/cart',"myController@cart");
+Route::post('/cart/add',"myController@cart_add");
 Route::get('/checkout',"myController@checkout");
 
 //dbManipulate test
