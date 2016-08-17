@@ -9,10 +9,14 @@ use App\Http\Requests;
 class myController extends Controller
 {
     //在這新增對應路由的方法
+
+    //參數傳遞測試
     public function test($paraReceiver)
     {
         return view("test", ["argu"=>$paraReceiver]);
     }
+
+    //正式
     public function shop()
     {
         return view("shop", ["title"=>"Shop Page"]);
