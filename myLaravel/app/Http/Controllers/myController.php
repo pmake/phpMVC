@@ -51,7 +51,7 @@ class myController extends Controller
     }
     public function cart()
     {
-        return view("cart", ["title"=>"Cart", "description"=>"網頁說明"]);
+        return view("cart", ["title"=>"Cart", "description"=>"網頁說明", "cart"=>ShoppingCart::content()]);
     }
     public function cart_add(Request $request)
     {
@@ -65,7 +65,7 @@ class myController extends Controller
 
         //處理完ADD需求後重新導向回products頁面
         return redirect('/products');
-        
+
         //redirect方法可附加資料，例如要將ShoppingCart內容傳遞過去，可以使用with方法，傳遞過去的參數可以使用{{session('cart')}}取得資料
         //$cart = ShoppingCart::content();
         //return redirect('/products')->with('cart', $cart);
