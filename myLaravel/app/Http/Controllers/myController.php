@@ -56,10 +56,10 @@ class myController extends Controller
     }
     public function cart_add(Request $request)
     {
-        $product_id = Request::get('product_id');
+
         //post方法的request處理，$request->isMethod('post')用來判斷路由來源是否使用POST方法
         if(Request::isMethod('post')){
-
+            $product_id = Request::get('product_id');
             $product = \App\Product::find($product_id);
 
             ShoppingCart::add(['id' => $product->id,
@@ -82,6 +82,18 @@ class myController extends Controller
                 $items =ShoppingCart::Search(function ($cartItem, $rowId) { return $cartItem->id == Request::get('product_id');});
                 ShoppingCart::update($items->first()->rowId, $items->first()->qty - 1);
             }
+
+            if( Request::get("clear") == 1)
+            {
+                ShoppingCart::destroy();
+            }
+            
+            if( Request::get("delete") == 1)
+            {
+                $items = ShoppingCart::Search(function ($cartItem, $rowId) { return $cartItem->id == Request::get('product_id');});
+                ShoppingCart::remove($items->first()->rowId);
+            }
+
             return redirect('/cart');
         }
         //redirect方法可附加資料，例如要將ShoppingCart內容傳遞過去，可以使用with方法，傳遞過去的參數可以使用{{session('cart')}}取得資料

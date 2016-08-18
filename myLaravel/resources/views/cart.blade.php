@@ -101,7 +101,7 @@ $100
                                     @foreach($cart as $item)
                                     <tr class="cart_item">
                                         <td class="product-remove">
-                                            <a title="Remove this item" class="remove" href="#">×</a>
+                                            <a title="Remove this item" class="remove" href="{{url("cart/add?product_id=$item->id&delete=1")}}">×</a>
                                         </td>
 
                                         <td class="product-thumbnail">
@@ -141,7 +141,7 @@ $100
                                                 <input type="submit" value="Apply Coupon" name="apply_coupon"
                                                        class="button">
                                             </div>
-                                            <input type="submit" value="Update Cart" name="update_cart" class="button">
+                                            <a href="{{url("cart/add?clear=1")}}"><input type="button" value="Clear Cart" name="update_cart" class="button"></a>
                                             <input type="submit" value="Checkout" name="proceed"
                                                    class="checkout-button button alt wc-forward">
                                         </td>
@@ -194,7 +194,7 @@ $100
                                     <tbody>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">£15.00</span></td>
+                                            <td><span class="amount">£{{shoppingCart::total()}}.00</span></td>
                                         </tr>
 
                                         <tr class="shipping">
@@ -204,7 +204,7 @@ $100
 
                                         <tr class="order-total">
                                             <th>Order Total</th>
-                                            <td><strong><span class="amount">£15.00</span></strong></td>
+                                            <td><strong><span class="amount">£{{shoppingCart::total()}}.00</span></strong></td>
                                         </tr>
                                     </tbody>
                                 </table>
