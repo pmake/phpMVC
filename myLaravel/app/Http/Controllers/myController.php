@@ -9,6 +9,8 @@ use App\Http\Requests;
 
 use ShoppingCart;
 
+use Auth;
+
 class myController extends Controller
 {
     //定義公用變數
@@ -32,6 +34,31 @@ class myController extends Controller
     }
 
     //正式
+    public function login()
+    {
+        return view("login", ["title"=>"login", "description"=>"網頁說明"]);
+    }
+
+    public function auth_login()
+    {
+        if(Auth::attempt(["email"=>Request::get("email"), "password"=> Request::get("password")])) return redirect('/');
+        else return redirect('/login');
+    }
+
+    public function signup()
+    {
+        //新增使用者至資料庫
+        \App\User::create([
+            'name' => Request::get('userName'),
+            'email' => Request::get('email'),
+            //Auth middleware預設使用bcrypt加密驗證，所以如果一開始寫入資料庫時未加密，後續使用Auth驗證密碼時會不一致
+            'password' => bcrypt(Request::get('password')),
+        ]);
+
+        return redirect('/login');
+
+    }
+
     public function shop()
     {
         return view("shop", ["title"=>"Shop Page", "description"=>"網頁說明"]);
@@ -87,7 +114,7 @@ class myController extends Controller
             {
                 ShoppingCart::destroy();
             }
-            
+
             if( Request::get("delete") == 1)
             {
                 $items = ShoppingCart::Search(function ($cartItem, $rowId) { return $cartItem->id == Request::get('product_id');});

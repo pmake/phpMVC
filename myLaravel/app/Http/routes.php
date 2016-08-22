@@ -16,6 +16,8 @@ Route::get('/test/{para}',"myController@test");
 Route::get('/shop',"myController@shop");
 Route::get('/contact-us',"myController@contact_us");
 Route::get('/login',"myController@login");
+Route::post('/auth/login',"myController@auth_login");
+Route::post('/signup',"myController@signup");
 Route::get('/logout',"myController@logout");
 Route::get('/single-product',"myController@single_product");
 //products頁面呈現DB資料實作對應這個預定義好的路由
@@ -97,3 +99,7 @@ Route::get('/testcrud/delete/{id}',function($id){
 
 
 
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
