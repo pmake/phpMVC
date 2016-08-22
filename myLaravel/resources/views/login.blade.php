@@ -51,6 +51,7 @@ $100
 
                             <p class="form-row">
                                 <input type="submit" value="Login" name="login" class="button">
+                                <a href="{{url('/fb_redirect')}}"><input type="button" value="Login with facebook" class="button"></a>
 <!--
                                 <label class="inline" for="rememberme"><input type="checkbox" value="forever"
                                                                               id="rememberme" name="rememberme">

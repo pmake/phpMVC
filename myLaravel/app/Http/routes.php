@@ -12,6 +12,8 @@
 */
 
 Route::get('/',"myController@index");
+Route::get('/fb_redirect',"myController@fb_redirect");
+Route::get('/fb_callback',"myController@fb_callback");
 Route::get('/test/{para}',"myController@test");
 Route::get('/shop',"myController@shop");
 Route::get('/contact-us',"myController@contact_us");

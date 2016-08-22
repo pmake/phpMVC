@@ -11,6 +11,8 @@ use ShoppingCart;
 
 use Auth;
 
+use Socialite;
+
 class myController extends Controller
 {
     //定義公用變數
@@ -34,6 +36,15 @@ class myController extends Controller
     }
 
     //正式
+    public function fb_redirect()
+    {
+        //進行facebook登入驗證
+        return Socialite::driver("facebook")->redirect();
+    }
+    public function fb_callback()
+    {
+        return "我回來了";
+    }
     public function login()
     {
         return view("login", ["title"=>"login", "description"=>"網頁說明"]);
