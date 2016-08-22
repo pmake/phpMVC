@@ -58,6 +58,13 @@ class myController extends Controller
         return redirect('/login');
 
     }
+    
+    public function auth_logout()
+    {
+        Auth::logout();
+        
+        return redirect('/');
+    }
 
     public function shop()
     {

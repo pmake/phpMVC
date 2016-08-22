@@ -18,7 +18,7 @@ Route::get('/contact-us',"myController@contact_us");
 Route::get('/login',"myController@login");
 Route::post('/auth/login',"myController@auth_login");
 Route::post('/signup',"myController@signup");
-Route::get('/logout',"myController@logout");
+Route::get('/auth/logout',"myController@auth_logout");
 Route::get('/single-product',"myController@single_product");
 //products頁面呈現DB資料實作對應這個預定義好的路由
 Route::get('/products',"myController@products");
@@ -31,7 +31,8 @@ Route::get('/search/{key-word}',"myController@search");
 Route::get('/cart',"myController@cart");
 Route::post('/cart/add',"myController@cart_add");
 Route::get('/cart/add',"myController@cart_add");
-Route::get('/checkout',"myController@checkout");
+//加入middleware驗證路由，有登入才能進入指定的controller方法，沒登入則導向至login頁面
+Route::get('/checkout',["middleware"=>"auth", "uses"=>"myController@checkout"]);
 
 //dbManipulate test
 
@@ -99,7 +100,7 @@ Route::get('/testcrud/delete/{id}',function($id){
 
 
 
+//註解掉Auth功能預設的首頁和登入頁，以使用自定義的頁面
+//Route::auth();
 
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');

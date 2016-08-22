@@ -38,11 +38,12 @@
             <div class="col-md-8">
                 <div class="user-menu">
                     <ul>
-                        <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                       <!--使用Auth功能驗證是否已登入，若是則顯示姓名-->
+                        <li><a href="#"><i class="fa fa-user"></i> {{Auth::check() ? Auth::user()->name : "My Account"}} </a></li>
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                         <li><a href="{{url("/cart")}}"><i class="fa fa-user"></i> My Cart</a></li>
                         <li><a href="{{url("/checkout")}}"><i class="fa fa-user"></i> Checkout</a></li>
-                        <li><a href="{{url("/login")}}"><i class="fa fa-user"></i> Login</a></li>
+                        <li><a href="{{Auth::check()? url("/auth/logout") : url("/login")}}"><i class="fa fa-user"></i> {{Auth::check() ? "Logout" : "Login"}} </a></li>
                     </ul>
                 </div>
             </div>
