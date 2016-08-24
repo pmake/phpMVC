@@ -138,7 +138,8 @@
                         eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis
                         magni at?</p>
                     <div class="footer-social">
-                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <!--分享到fb連結-->
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url("")}}" target="_blank" target="_blank"><i class="fa fa-facebook"></i></a>
                         <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
                         <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
                         <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
