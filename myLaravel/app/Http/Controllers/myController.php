@@ -13,6 +13,8 @@ use Auth;
 
 use Socialite;
 
+use App\SocialiteUserService;
+
 class myController extends Controller
 {
     //定義公用變數
@@ -41,9 +43,20 @@ class myController extends Controller
         //進行facebook登入驗證
         return Socialite::driver("facebook")->redirect();
     }
-    public function fb_callback()
+    public function fb_callback(SocialiteUserService $socialiteUserService)
     {
-        return "我回來了";
+        //取得回傳的使用者資料
+        $vendor_user = Socialite::driver("facebook")->user();
+
+        //測試
+        //return "$vendor_user->id, $vendor_user->nickname, $vendor_user->name, $vendor_user->email, $vendor_user->avatar";
+        
+        //使用自定義的服務比對FB回傳的使用者資料與資料庫裡的資料，有登錄過則傳回紀錄的帳號資料，未登錄過則新增資料進資料庫並回傳回來
+        $user = $socialiteUserService->checkUser($vendor_user);
+        //使用上一步傳回的使用者資料以Auth進行內部登入動作，以利後續相關操作的使用Auth驗證是否已登入，避免頻繁透過fb驗證
+        Auth::login($user);
+
+        return redirect('/');
     }
     public function login()
     {
@@ -69,11 +82,11 @@ class myController extends Controller
         return redirect('/login');
 
     }
-    
+
     public function auth_logout()
     {
         Auth::logout();
-        
+
         return redirect('/');
     }
 
