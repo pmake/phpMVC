@@ -142,8 +142,11 @@ $100
                                                        class="button">
                                             </div>
                                             <a href="{{url("cart/add?clear=1")}}"><input type="button" value="Clear Cart" name="update_cart" class="button"></a>
+                                            <a href="{{url("allpay_demo_201608/checkout")}}"><input type="button" value="歐付寶測試" name="update_cart" class="button"></a>
+<!--
                                             <input type="submit" value="Checkout" name="proceed"
                                                    class="checkout-button button alt wc-forward">
+-->
                                         </td>
                                     </tr>
                                 </tbody>
