@@ -159,6 +159,8 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         // 註冊社群服務
         Laravel\Socialite\SocialiteServiceProvider::class,
+        // Allpay歐付寶
+        ScottChayaa\Allpay\AllpayServiceProvider::class,
 
     ],
 
@@ -209,6 +211,8 @@ return [
         'ShoppingCart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         // 設定社群服務簡寫
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        // Allpay
+        "Allpay" => ScottChayaa\Allpay\Facade\Allpay::class,
     ],
 
 ];

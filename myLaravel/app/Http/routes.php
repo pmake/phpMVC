@@ -54,7 +54,7 @@ Route::get('/testcrud/create/{name}-{title}',function($name, $title){
 
     //批次欄位新增，需在Model檔案設定允許批次操作，此方式不需再用save方法儲存
     $product->create(['name'=>$name, 'title'=> $title]);
-    
+
     //新增後重導向到查詢全部資料頁面看是否有新增
     return redirect("/testcrud/read/all");
 });
@@ -106,3 +106,17 @@ Route::get('/testcrud/delete/{id}',function($id){
 //Route::auth();
 
 //Route::get('/home', 'HomeController@index');
+
+//歐付寶相關路由群組
+//Route::group用來定義多個路由群組
+//其中定義namespace屬性，才可以抓到ScottChayaa底下的controler
+//定義prefix屬性定義前綴路由，減少路由文字量
+Route::group([
+    'namespace' => 'ScottChayaa\Allpay\Controllers',
+    'prefix'    => 'allpay_demo_201608'],
+             function () {
+                 //因為prefix有定義'allpay_demo_201608'，所以下列的'/'路由等同allpay_demo_201608，'/checkot'等同'allpay_demo_201608/checkout'
+                 Route::get('/', 'DemoController@index');
+                 Route::get('/checkout', 'DemoController@checkout');
+             }
+            );
